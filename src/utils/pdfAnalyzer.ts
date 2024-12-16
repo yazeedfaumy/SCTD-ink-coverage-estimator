@@ -20,7 +20,7 @@ export async function analyzePDF(file: File, documentType: DocumentType): Promis
     const imageData = context.getImageData(0, 0, context.canvas.width, context.canvas.height);
     const pixels = imageData.data;
     
-    let totalPixels = 0;
+    let totalPixels = pixels.length / 4; // Each pixel has RGBA components
     const colorTotals = { c: 0, m: 0, y: 0, k: 0 };
 
     // Analyze pixels
@@ -29,10 +29,7 @@ export async function analyzePDF(file: File, documentType: DocumentType): Promis
       const g = pixels[i + 1];
       const b = pixels[i + 2];
       
-      if (r === 255 && g === 255 && b === 255) continue; // Skip white pixels
-      
-      totalPixels++;
-      
+      // Include white pixels by analyzing them as part of the ink usage calculation
       if (documentType === 'color') {
         analyzeColorPixel(r, g, b, colorTotals);
       } else {
