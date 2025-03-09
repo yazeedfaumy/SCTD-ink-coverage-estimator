@@ -1,0 +1,59 @@
+:root {
+  /* Primary Colors */
+  --primary-color: #22c55e;
+  --primary-light-color: #4ade80;
+  --primary-dark-color: #16a34a;
+  /* Secondary Colors */
+  --secondary-color: #fbbf24;
+  --secondary-light-color: #fcd34d;
+  --secondary-dark-color: #f59e0b;
+  /* Background Colors */
+  --surface-ground: #f9fafb;
+  --surface-section: #ffffff;
+  --surface-card: #ffffff;
+  --surface-overlay: #ffffff;
+  --surface-border: #e5e7eb;
+  /* Text Colors */
+  --text-color: #1f2937;
+  --text-color-secondary: #6b7280;
+  --primary-text-color: #166534;
+  --secondary-text-color: #92400e;
+}
+
+/* Button Styles */
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+}
+.btn-primary:hover {
+  background-color: var(--primary-dark-color);
+  border-color: var(--primary-dark-color);
+}
+.btn-secondary {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  color: var(--secondary-text-color);
+}
+.btn-secondary:hover {
+  background-color: var(--secondary-dark-color);
+  border-color: var(--secondary-dark-color);
+}
+
+/* Link Styles */
+a {
+  color: var(--primary-color);
+}
+a:hover {
+  color: var(--primary-dark-color);
+}
+
+/* Active/Selected States */
+.active-tab {
+  border-color: var(--primary-color);
+  color: var(--primary-text-color);
+}
+.active-item {
+  background-color: var(--secondary-light-color);
+  color: var(--secondary-text-color);
+}
