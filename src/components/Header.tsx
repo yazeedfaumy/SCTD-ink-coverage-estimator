@@ -1,7 +1,12 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import { Droplets, Bell, User, LogOut, Settings } from "lucide-react";
-export function Header() {
+import { Droplets, Bell, User, LogOut, Settings, Menu } from "lucide-react";
+interface HeaderProps {
+  onMenuClick: () => void;
+}
+export function Header({
+  onMenuClick
+}: HeaderProps) {
   const [notifications] = useState(3);
   const [showUserMenu, setShowUserMenu] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
@@ -29,6 +34,9 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
+            <button className="p-2 rounded-md md:hidden" onClick={onMenuClick}>
+              <Menu className="h-6 w-6 text-gray-600" />
+            </button>
             <Link to="/" className="flex items-center">
               <div className="bg-green-600 p-1 rounded-md">
                 <Droplets className="h-7 w-7 text-yellow-400" />
